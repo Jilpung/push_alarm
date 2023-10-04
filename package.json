@@ -1,0 +1,40 @@
+{
+  "name": "push-alarm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "ts-node server.ts",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "npx jest"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.6.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "dotenv": "^16.3.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "supertest": "^6.3.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/jest": "^29.5.5",
+    "@types/supertest": "^2.0.12",
+    "cors": "^2.8.5",
+    "eslint": "^8.49.0",
+    "express": "^4.18.2",
+    "fcm-node": "^1.6.1",
+    "firebase": "^10.4.0",
+    "firebase-admin": "^11.10.1",
+    "http-status": "^1.7.0",
+    "mysql2": "^3.6.1",
+    "pg-promise": "^11.5.4",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1"
+  }
+}
