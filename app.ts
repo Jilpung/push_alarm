@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import notificationRoutes from './src/routes/notificationRoutes';
+import subRoutes from './src/routes/sub.routes';
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/notifications', notificationRoutes);
+app.use('/subs', subRoutes);
 
 app.use((req: Request, res: Response) => {
   res.status(400).send('NOT FOUND');

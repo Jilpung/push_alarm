@@ -1,12 +1,15 @@
 import { Router } from 'express';
 import {
   getAccounts,
-  sendNotification,
-} from '../controllers/notificationController';
+  sendNotificationToken,
+  sendNotificationTopics,
+} from '../controllers/notification.controller';
 
 const router = Router();
 
-router.route('/sendNotification').post(sendNotification);
+router.route('/sendNotificationToken').post(sendNotificationToken);
+
+router.route('/sendNotificationTopics').post(sendNotificationTopics);
 
 router.route('/accounts').get(getAccounts);
 
