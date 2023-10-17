@@ -73,6 +73,49 @@ export const sendNotificationTopics = async (req: Request, res: Response) => {
   }
 };
 
+export const sendNotification = async () => {
+  const message = {
+    notification: {
+      title: 'hi',
+      body: 'hi',
+    },
+    topic: 'SNS',
+    android: {
+      priority: 'high' as const,
+    },
+    apns: {
+      payload: {
+        aps: {
+          contentAvailable: true,
+        },
+      },
+    },
+  };
+
+  try {
+    await firebaseAdmin
+      .messaging()
+      .send(message)
+      .then(function (response) {
+        console.log('Successfully sent message: ', response);
+      });
+
+    return message;
+  } catch (e) {
+    console.error('Failed to send message: ', e);
+    throw e;
+  }
+};
+
+export const sendNotificationSunAds = async (req: Request, res: Response) => {
+  try {
+    const message = await sendNotification();
+    responses(res, message);
+  } catch (e) {
+    defaultError(res, e);
+  }
+};
+
 export const getAccounts = async (req: Request, res: Response) => {
   try {
     const notificationRepo = new NotificationRepo();
